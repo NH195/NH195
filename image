@@ -1,0 +1,54 @@
+# SVG-bestanden genereren
+
+# 1. Power BI Dashboard Icon
+dashboard_svg = """<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" rx="20" fill="#0077CC"/>
+    <rect x="20" y="30" width="160" height="40" rx="5" fill="white"/>
+    <rect x="20" y="80" width="70" height="90" rx="5" fill="white"/>
+    <rect x="100" y="80" width="80" height="40" rx="5" fill="white"/>
+    <rect x="100" y="130" width="80" height="40" rx="5" fill="white"/>
+</svg>"""
+
+# 2. DAX Code Icon
+dax_svg = """<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" rx="20" fill="#FF6600"/>
+    <text x="50" y="100" font-size="50" font-weight="bold" fill="white">DAX</text>
+</svg>"""
+
+# 3. Datamodel Icon
+datamodel_svg = """<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" rx="20" fill="#333"/>
+    <circle cx="50" cy="50" r="20" fill="#FFD700"/>
+    <circle cx="150" cy="50" r="20" fill="#FFD700"/>
+    <circle cx="50" cy="150" r="20" fill="#FFD700"/>
+    <circle cx="150" cy="150" r="20" fill="#FFD700"/>
+    <line x1="50" y1="50" x2="150" y2="50" stroke="white" stroke-width="3"/>
+    <line x1="50" y1="50" x2="50" y2="150" stroke="white" stroke-width="3"/>
+    <line x1="150" y1="50" x2="150" y2="150" stroke="white" stroke-width="3"/>
+</svg>"""
+
+# 4. Power BI Custom Logo
+powerbi_logo_svg = """<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" rx="20" fill="#F2C811"/>
+    <rect x="40" y="50" width="20" height="100" fill="black"/>
+    <rect x="80" y="30" width="20" height="120" fill="black"/>
+    <rect x="120" y="70" width="20" height="80" fill="black"/>
+    <rect x="160" y="90" width="20" height="60" fill="black"/>
+</svg>"""
+
+# Bestanden opslaan
+svg_files = {
+    "dashboard.svg": dashboard_svg,
+    "dax.svg": dax_svg,
+    "datamodel.svg": datamodel_svg,
+    "powerbi_logo.svg": powerbi_logo_svg,
+}
+
+svg_paths = []
+for filename, content in svg_files.items():
+    path = f"/mnt/data/{filename}"
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
+    svg_paths.append(path)
+
+svg_paths
